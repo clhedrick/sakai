@@ -1164,18 +1164,23 @@ public class ShowPageProducer implements ViewComponentProducer, DefaultView, Nav
 					    headerText = i.getName();
 					}
 					UIOutput.make(sectionWrapper, "sectionHeaderText", headerText);
+					UIOutput collapsedIcon = UIOutput.make(sectionWrapper, "sectionCollapsedIcon");
 					sectionHeader.decorate(new UIStyleDecorator(headerText.equals("")? "skip" : ""));
 					sectionContainer = UIBranchContainer.make(sectionWrapper, "section:");
+					boolean needIcon = false;
 					if (collapsible) {
 						sectionHeader.decorate(new UIStyleDecorator("collapsibleSectionHeader"));
 						sectionContainer.decorate(new UIStyleDecorator("collapsible"));
 						if (defaultClosed ) {
 							sectionHeader.decorate(new UIStyleDecorator("closedSectionHeader"));
 							sectionContainer.decorate(new UIStyleDecorator("defaultClosed"));
+							needIcon = true;
 						} else {
 							sectionHeader.decorate(new UIStyleDecorator("openSectionHeader"));
 						}
 					}
+					if (!needIcon)
+					    collapsedIcon.decorate(new UIFreeAttributeDecorator("style", "display:none"));
 					cols = colCount(itemList, i.getId());
 					sectionbreak = true;
 					colnum = 0;
