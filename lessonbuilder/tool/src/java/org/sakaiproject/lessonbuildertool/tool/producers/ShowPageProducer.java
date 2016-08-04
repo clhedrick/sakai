@@ -1283,7 +1283,7 @@ public class ShowPageProducer implements ViewComponentProducer, DefaultView, Nav
 					    contentCol.decorate(new UIFreeAttributeDecorator("style", "width:100%"));
 
 					UIBranchContainer linkdiv = null;
-					if (!isInline) {
+					if (!isInline && !"button".equals(i.getFormat())) {
 					    linkdiv = UIBranchContainer.make(tableRow, "link-div:");
 					    UIOutput itemicon = UIOutput.make(linkdiv,"item-icon");
 					    switch (i.getType()) {
@@ -3161,9 +3161,6 @@ public class ShowPageProducer implements ViewComponentProducer, DefaultView, Nav
 					isbutton = true;
 					UIOutput span = UIOutput.make(container, ID + "-button-span");
 					ID = ID + "-button";
-					if (!i.isRequired()) {
-						span.decorate(new UIFreeAttributeDecorator("class", "navIntraTool buttonItem"));
-					}
 					isbutton = true;
 				}
 				
