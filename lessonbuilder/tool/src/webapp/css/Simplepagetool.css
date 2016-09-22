@@ -882,6 +882,9 @@ a.peer-eval-stats {
     margin-left: 2em;
     font-size: 110%;
 }
+.missingStudentTitle {
+    margin-left: 23px;
+}
 .studentContentTable {
         margin-top:10px;
 	border: none;
@@ -897,7 +900,9 @@ a.peer-eval-stats {
 .studentContentTable .studentLink{
     padding-left:8px;
 }
-
+.studentContentTable .missingStudent {
+    padding-left:43px;
+}
 
 .duecol {
 	padding-left: 2em !important
